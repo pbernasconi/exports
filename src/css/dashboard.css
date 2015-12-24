@@ -1,0 +1,33 @@
+header.top-header {
+  position: absolute;
+  height: 70px;
+  width: 100%;
+  background: black;
+}
+
+.side-nav {
+  position: absolute;
+  margin-top: 70px;
+  height: 100%;
+  width: 240px;
+  background: #EAEAEA;
+}
+
+.side-nav .nav-component {
+  display: block;
+  padding: 15px;
+  border-bottom: 1px solid #D6D6D6;
+}
+
+.side-nav .nav-component:hover {
+  cursor: pointer;
+}
+
+.main-content {
+  position: absolute;
+  margin-left: 240px;
+  margin-top: 70px;
+  height: 100%;
+  width: 100%;
+  background: #FFF;
+}

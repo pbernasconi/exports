@@ -1,3 +1,14 @@
-<p>
-  exports Works!
-</p>
+<div class="content-wrapper">
+  <header class="top-header"></header>
+
+  <section class="side-nav">
+    <div class="nav-component" [routerLink]="['Dashboard']">Dashboard</div>
+    <div class="nav-component" [routerLink]="['Shipments']">Shipments</div>
+    <div class="nav-component" [routerLink]="['Settings']">Settings</div>
+  </section>
+
+  <section class="main-content">
+    <router-outlet></router-outlet>
+  </section>
+
+</div>
