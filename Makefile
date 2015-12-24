@@ -5,7 +5,7 @@ JSHINT = node_modules/.bin/jshint --extract=auto --config jshint.json
 NODEMON = node_modules/.bin/nodemon --ext hbs,js,json --watch lib --harmony lib/server.js
 NPM = npm
 
-SRC_NODE = $(shell find . -path './lib/*' -not -name '*.html')
+SRC_NODE = $(shell find . -path './lib/*' -not -name '*.hbs')
 
 
 .PHONY: clean lint setup setup-dependencies start setup-hooks
