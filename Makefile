@@ -4,7 +4,7 @@ JSCS = node_modules/.bin/jscs --esnext --config jscs.json
 JSHINT = node_modules/.bin/jshint --extract=auto --config jshint.json
 NODEMON = node_modules/.bin/nodemon --ext hbs,js,json --watch lib --harmony lib/server.js
 NPM = npm
-TSC = node_modules/.bin/tsc
+NG = node_modules/.bin/ng
 
 SRC_NODE = $(shell find . -path './lib/*' -not -name '*.hbs')
 TS_FILES = $(shell find public/ -name  '*.ts')
@@ -26,10 +26,16 @@ setup: setup-hooks setup-dependencies
 
 setup-dependencies:
 	$(NPM) install
+	$(NG) build
 
 setup-hooks:
 	chmod oug+x githooks/*
 	cp githooks/* .git/hooks/
 
-start:
+start: start-server start-client
+
+start-server:
 	$(NODEMON) start
+
+start-client:
+	$(NG) serve

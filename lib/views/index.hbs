@@ -1,29 +1,33 @@
 <!doctype html>
 <html>
 
-<meta charset="utf-8">
-<title>Exports</title>
-<base href="/">
-<script src="node_modules/angular2/bundles/angular2-polyfills.js"></script>
-<link href="favicon.ico" rel="icon" type="image/x-icon">
-<link type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-<exports-app>Loading...</exports-app>
+<head>
+  <meta charset="utf-8">
+  <title>Testing</title>
+  <base href=".">
+  <script src="vendor/angular2/bundles/angular2-polyfills.js"></script>
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+</head>
 
-<script src="node_modules/systemjs/dist/system.src.js"></script>
-<script src="node_modules/rxjs/bundles/Rx.js"></script>
-<script src="node_modules/angular2/bundles/angular2.dev.js"></script>
-<script src="node_modules/angular2/bundles/http.dev.js"></script>
-<script src="node_modules/angular2/bundles/router.dev.js"></script>
-<script>
-  System.config({
-    packages: {
-      app: {
-        format: 'register',
-        defaultExtension: 'js'
+<body>
+  <testing-app>Loading...</testing-app>
+
+  <script src="vendor/systemjs/dist/system.src.js"></script>
+  <script src="vendor/rxjs/bundles/Rx.js"></script>
+  <script src="vendor/angular2/bundles/angular2.dev.js"></script>
+  <script src="vendor/angular2/bundles/http.dev.js"></script>
+  <script src="vendor/angular2/bundles/router.dev.js"></script>
+  <script>
+    System.config({
+      packages: {
+        app: {
+          format: 'register',
+          defaultExtension: 'js'
+        }
       }
-    }
-  });
-  System.import('app.js').then(null, console.error.bind(console));
-</script>
+    });
+    System.import('app.js').then(null, console.error.bind(console));
+  </script>
+</body>
 
 </html>
