@@ -1,51 +1,31 @@
 .DEFAULT_GOAL := build
-BOWER = ./node_modules/.bin/bower
+BOWER = node_modules/.bin/bower
+JSCS = node_modules/.bin/jscs --esnext --config jscs.json
+JSHINT = node_modules/.bin/jshint --extract=auto --config jshint.json
+NODEMON = node_modules/.bin/nodemon --ext hbs,js,json --watch lib --harmony lib/server.js
 NPM = npm
-NODEMON = ./node_modules/.bin/nodemon
+
+SRC_NODE = $(shell find . -path './lib/*' -not -name '*.html')
 
 
-SRC_NODE    = $(shell find . \( -path './lib/*' -or -path './test/*' \) \
- 								-not -path './test/fixtures/*' -name '*.js')
-SRC_BROWSER = $(shell find . -path './public/*' -not -path './public/vendor/*' \
- 								\( -name '*.js' -or -name '*.html' \))
+.PHONY: clean lint setup setup-dependencies start setup-hooks
 
 
-SRC_ALL = $(SRC_NODE) $(SRC_BROWSER)
+clean:
+	rm -rf node_modules
 
-.PHONY: lint
 lint:
-	@$(JSHINT_BROWSER) -- $(SRC_BROWSER)
-	@$(JSHINT_NODE) -- $(SRC_NODE)
-	@$(DEV_TOOLS)/bin/check-use-strict $(SRC_NODE)
-	@$(DEV_TOOLS)/bin/check-comments $(SRC_NODE)
+	@$(JSHINT) -- $(SRC_NODE)
 	@$(JSCS) -- $(SRC_NODE)
 
-.PHONY: setup
 setup: setup-hooks setup-dependencies
 
-
-.PHONY: setup-dependencies
 setup-dependencies:
 	$(NPM) install
 
-
-.PHONY: start
-start:
-	$(NPM) start
-
-
-.PHONY: clean
-clean:
-	$(NPM) rm -rf public/vendor && rm -rf node_modules
-
-
-.PHONY: setup-hooks
 setup-hooks:
 	chmod oug+x githooks/*
 	cp githooks/* .git/hooks/
 
-
-.PHONY: test
-test:
-	$(ISTANBUL) cover node_modules/.bin/_mocha -- --recursive
-	$(ISTANBUL) check-coverage --branches 100
+start:
+	$(NODEMON) start

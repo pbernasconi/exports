@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+
+<meta charset="utf-8">
+<title>Exports</title>
+<base href=".">
+<script src="vendor/angular2/bundles/angular2-polyfills.js"></script>
+<link href="favicon.ico" rel="icon" type="image/x-icon">
+<exports-app>Loading...</exports-app>
+
+<script src="vendor/systemjs/dist/system.src.js"></script>
+<script src="vendor/rxjs/bundles/Rx.js"></script>
+<script src="vendor/angular2/bundles/angular2.dev.js"></script>
+<script src="vendor/angular2/bundles/http.dev.js"></script>
+<script src="vendor/angular2/bundles/router.dev.js"></script>
+<script>
+  System.config({
+    packages: {
+      app: {
+        format: 'register',
+        defaultExtension: 'js'
+      }
+    }
+  });
+  System.import('app.js').then(null, console.error.bind(console));
+</script>
+
+</html>
