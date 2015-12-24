@@ -17,6 +17,7 @@
     "koa-passport": "1.2.x",
     "koa-router": "5.3.x",
     "koa-session-mongo": "1.1.x",
+    "koa-static": "^1.5.2",
     "mongoose": "4.3.x",
     "passport-local": "1.0.x",
     "ramda": "0.19.x",
