@@ -1,0 +1,48 @@
+<div class="row">
+
+  <div class="col-sm-8">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <form #shipmentForm="ngForm" (ngSubmit)="onSubmit()">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input class="form-control" #name="ngForm" [(ngModel)]="model.name" ngControl="name" required type="text">
+            <div class="alert alert-danger" [hidden]="name.valid">Name is required</div>
+          </div>
+          <div class="form-group">
+            <label for="name">Origin</label>
+            <input class="form-control" #origin="ngForm" [(ngModel)]="model.origin" ngControl="origin" required type="text">
+            <div class="alert alert-danger" [hidden]="origin.valid">Name is required</div>
+          </div>
+          <div class="form-group">
+            <label for="name">Destination</label>
+            <input class="form-control" #destination="ngForm" [(ngModel)]="model.destination" ngControl="destination" required type="text">
+            <div class="alert alert-danger" [hidden]="destination.valid">Name is required</div>
+          </div>
+          <div class="form-group">
+            <label for="name">Status</label>
+            <input class="form-control" #status="ngForm" [(ngModel)]="model.status"  ngControl="status" required type="text">
+            <div class="alert alert-danger" [hidden]="status.valid">Name is required</div>
+          </div>
+          <button class="btn btn-default" type="submit" [disabled]="!shipmentForm.form.valid">Submit</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-sm-4">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        Shipment Summary
+      </div>
+      <ul class="list-group">
+        <li class="list-group-item"><span>Name</span><span class="pull-right">{{model.name}}</span>
+        <li class="list-group-item"><span>Origin</span><span class="pull-right">{{model.origin}}</span>
+        <li class="list-group-item"><span>Destination</span><span class="pull-right">{{model.Destination}}</span>
+        <li class="list-group-item"><span>Status</span><span class="pull-right">{{model.status}}</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+</div>

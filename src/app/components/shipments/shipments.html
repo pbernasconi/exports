@@ -1,3 +1,51 @@
-<p>
-  shipments Works!
-</p>
+<div class="row">
+
+  <div class="col-sm-8">
+    <div class="panel panel-default">
+      <div class="panel-heading">Active Shipments</div>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Origin</th>
+            <th>Desination</th>
+            <th>Delivery</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr (click)="openShipmentDetail(shipment)" *ngFor="#shipment of shipments">
+            <td>{{shipment.name}}</td>
+            <td>{{shipment.origin}}</td>
+            <td>{{shipment.desination}}</td>
+            <td>{{shipment.delivery}}</td>
+            <td>{{shipment.status}}</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="panel-body" *ngIf="shipments.length === 0">
+        {{shipments}}
+        No active shipments available
+      </div>
+    </div>
+  </div>
+
+  <div class="col-sm-4">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <button (click)="newShipment()" class="btn btn-default">New Shipment</button>
+      </div>
+      <div class="panel-body">
+        Basic panel example
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+<div class="panel panel-default">
+  <div class="panel-body">
+    Basic panel example
+  </div>
+</div>

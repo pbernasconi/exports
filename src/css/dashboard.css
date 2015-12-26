@@ -1,22 +1,33 @@
+body {
+  background: #E5E9EC;
+}
+
 header.top-header {
   position: absolute;
+  left: 240px;
   height: 70px;
-  width: 100%;
-  background: black;
+  right: 0;
+  background: #FFF;
 }
 
 .side-nav {
   position: absolute;
-  margin-top: 70px;
   height: 100%;
   width: 240px;
-  background: #EAEAEA;
+  background: #50585A;
+  color: #FFF;
+}
+
+.side-nav .logo {
+  padding: 25px;
+  height: 70px;
+  border-bottom: 1px solid #5E6567;
 }
 
 .side-nav .nav-component {
   display: block;
-  padding: 15px;
-  border-bottom: 1px solid #D6D6D6;
+  padding: 20px;
+  border-bottom: 1px solid #5E6567;
 }
 
 .side-nav .nav-component:hover {
@@ -24,10 +35,9 @@ header.top-header {
 }
 
 .main-content {
-  position: absolute;
+  position: relative;
   margin-left: 240px;
-  margin-top: 70px;
-  height: 100%;
-  width: 100%;
-  background: #FFF;
+  top: 70px;
+  padding: 25px;
+  background: #E5E9EC;
 }
