@@ -40,10 +40,11 @@ setup-hooks:
 
 
 .PHONY: start
-start: start-server start-client
+start:
+	$(MAKE) start-server & $(MAKE) start-client
 
 
-.PHONY:start-server
+.PHONY: start-server
 start-server:
 	$(NODEMON) start
 

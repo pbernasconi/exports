@@ -21,7 +21,7 @@
           </div>
           <div class="form-group">
             <label for="name">Status</label>
-            <input class="form-control" #status="ngForm" [(ngModel)]="model.status"  ngControl="status" required type="text">
+            <input class="form-control" #status="ngForm" [(ngModel)]="model.status" ngControl="status" required type="text">
             <div class="alert alert-danger" [hidden]="status.valid">Name is required</div>
           </div>
           <button class="btn btn-default" type="submit" [disabled]="!shipmentForm.form.valid">Submit</button>
@@ -38,7 +38,7 @@
       <ul class="list-group">
         <li class="list-group-item"><span>Name</span><span class="pull-right">{{model.name}}</span>
         <li class="list-group-item"><span>Origin</span><span class="pull-right">{{model.origin}}</span>
-        <li class="list-group-item"><span>Destination</span><span class="pull-right">{{model.Destination}}</span>
+        <li class="list-group-item"><span>Destination</span><span class="pull-right">{{model.destination}}</span>
         <li class="list-group-item"><span>Status</span><span class="pull-right">{{model.status}}</span>
         </li>
       </ul>
