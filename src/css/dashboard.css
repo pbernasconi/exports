@@ -2,6 +2,10 @@ body {
   background: #E5E9EC;
 }
 
+.bold {
+  font-weight: 900;
+}
+
 header.top-header {
   position: absolute;
   left: 240px;

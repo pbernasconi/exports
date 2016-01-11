@@ -18,14 +18,11 @@ export class Shipments {
     private _router: Router
   ) {
     this.shipments = [];
-  }
-
-  ngOnInit() {
     this._shipmentService.getAll().subscribe(result => this.shipments = result);
   }
 
   openShipmentDetail(shipment) {
-    this._router.navigate(['ShipmentDetail', {param: shipment.id}]);
+    this._router.navigate(['ShipmentDetail', {id: shipment._id}]);
   }
 
   newShipment() {

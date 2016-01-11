@@ -1,4 +1,5 @@
 import {Component} from 'angular2/core';
+import {Router} from 'angular2/router';
 import {NgFor, NgForm, FORM_DIRECTIVES} from 'angular2/common';
 
 import {ShipmentService} from '../../../services/shipment.service';
@@ -14,16 +15,15 @@ export class ShipmentNew {
   public model: Object;
 
   constructor(
-    private _shipmentService: ShipmentService
+    private _shipmentService: ShipmentService,
+    private _router: Router
     ) {
     this.model = { name: 'New shipment', origin: 'GVA', destination: 'ROT', status: 'new' };
   }
 
   onSubmit() {
-    this._shipmentService.createOne(this.model).subscribe(result => console.log(result));
-  }
-
-  showFormControls(form: NgForm) {
-    return form.controls['alterEgo'] && form.controls['name'].value;
+    this._shipmentService.createOne(this.model).subscribe(result => {
+      this._router.navigate(['Shipments']);
+    });
   }
 }
