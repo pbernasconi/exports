@@ -10,18 +10,17 @@ import {ShipmentService} from '../../../services/shipment.service';
   directives: [NgFor, NgForm, FORM_DIRECTIVES],
   providers: [ShipmentService],
 })
-export class NewShipment {
+export class ShipmentNew {
   public model: Object;
 
   constructor(
     private _shipmentService: ShipmentService
-  ) {
+    ) {
     this.model = { name: 'New shipment', origin: 'GVA', destination: 'ROT', status: 'new' };
   }
 
   onSubmit() {
-    console.log(this.model);
-    this._shipmentService.createOne(this.model);
+    this._shipmentService.createOne(this.model).subscribe(result => console.log(result));
   }
 
   showFormControls(form: NgForm) {
