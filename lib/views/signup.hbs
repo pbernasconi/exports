@@ -3,22 +3,23 @@
 
 <meta charset="utf-8">
 <title>Exports</title>
-<base href=".">
+<base href="/">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 <link rel="stylesheet" href="css/account.css">
+
+
 <div class="container">
   <div class="row">
     <div class="col-sm-8 col-sm-offset-2">
 
       <div class="wrapper">
-        <form class="form-signin">
-          <h2 class="form-signin-heading">Please login</h2>
-          <input type="text" class="form-control" name="username" placeholder="Email Address" required="" autofocus="" />
-          <input type="password" class="form-control" name="password" placeholder="Password" required="" />
-          <label class="checkbox">
-            <input type="checkbox" value="remember-me" id="rememberMe" name="rememberMe"> Remember me
-          </label>
-          <button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
+        <form class="form-signin" action="/signup" method="POST">
+          <h2 class="form-signin-heading">Please Signup</h2>
+          <input type="text" class="form-control" name="name" placeholder="Full Name" required autofocus />
+          <input type="text" class="form-control" name="company" placeholder="Company" required />
+          <input type="text" class="form-control" name="username" placeholder="Email Address" required />
+          <input type="password" class="form-control" name="password" placeholder="Password" required />
+          <button class="btn btn-lg btn-primary btn-block" type="submit">Signup</button>
         </form>
       </div>
 

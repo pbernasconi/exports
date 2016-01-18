@@ -12,7 +12,6 @@ import {ShipmentService} from '../../services/shipment.service';
 })
 export class Shipments {
   public shipments: Array<any>;
-s
   constructor(
     private _shipmentService: ShipmentService,
     private _router: Router

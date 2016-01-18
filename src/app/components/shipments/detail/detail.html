@@ -13,20 +13,18 @@
   </div>
 
 
-
   <div class="col-sm-6">
     <div class="panel panel-default">
       <div class="panel-heading">Activity</div>
-      <ul class="list-group">
-        <li class="list-group-item"><span>Name</span><span class="pull-right">{{shipment.name}}</span></li>
-        <li class="list-group-item"><span>Origin</span><span class="pull-right">{{shipment.origin}}</span></li>
-        <li class="list-group-item"><span>Destination</span><span class="pull-right">{{shipment.destination}}</span></li>
-        <li class="list-group-item"><span>Status</span><span class="pull-right">{{shipment.status}}</span></li>
+      <ul class="list-group" *ngFor="#activity of shipment.activity">
+        <li class="list-group-item"><span>Name</span><span class="pull-right">{{activity.name}}</span></li>
+        <li class="list-group-item"><span>Origin</span><span class="pull-right">{{activity.origin}}</span></li>
+        <li class="list-group-item"><span>Destination</span><span class="pull-right">{{activity.destination}}</span></li>
+        <li class="list-group-item"><span>Status</span><span class="pull-right">{{activity.status}}</span></li>
       </ul>
     </div>
   </div>
 
-  
   <div class="col-sm-6">
     <div class="panel panel-default">
       <div class="panel-heading">

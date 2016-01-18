@@ -1,3 +1,44 @@
-<p>
-  dashboard Works!
-</p>
+<div class="row">
+
+  <div class="col-sm-8">
+    <div class="panel panel-default">
+      <div class="panel-heading">Products</div>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="list-shipments" (click)="openProductDetail(product)" *ngFor="#prod of products">
+            <td>{{prod.name}}</td>
+            <td>{{prod.status}}</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="panel-body" *ngIf="products.length === 0">
+        No active products available
+      </div>
+    </div>
+  </div>
+
+  <div class="col-sm-4">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <button (click)="newProduct()" class="btn btn-default">New Shipment</button>
+      </div>
+      <div class="panel-body">
+        Basic panel example
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+<div class="panel panel-default">
+  <div class="panel-body">
+    Basic panel example
+  </div>
+</div>

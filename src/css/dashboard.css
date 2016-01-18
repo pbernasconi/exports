@@ -75,3 +75,7 @@ header.top-header {
   padding: 10px 0 30px 0;
   border-bottom: 1px solid rgba(128, 128, 128, 0.2);
 }
+
+.new-shipment__section h1 {
+  padding-bottom: 40px;
+}
