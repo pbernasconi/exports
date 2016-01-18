@@ -1,0 +1,30 @@
+{
+  "version": "1.7.5",
+  "compileOnSave": false,
+  "compilerOptions": {
+    "outDir": "dist",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "target": "es5",
+    "module": "system",
+    "moduleResolution": "node",
+    "declaration": false,
+    "removeComments": true,
+    "sourceMap": false,
+    "noImplicitAny": false,
+    "noLib": false
+  },
+  "files": [
+    "./src/app/bootstrap.ts",
+    "./src/app/components/dashboard/dashboard.ts",
+    "./src/app/components/settings/settings.ts",
+    "./src/app/components/shipments/detail/detail.ts",
+    "./src/app/components/shipments/new/new.ts",
+    "./src/app/components/shipments/shipments.ts",
+    "./src/app/exports.ts",
+    "./src/app/services/shipment.service.ts"
+  ],
+  "atom": {
+    "rewriteTsconfig": true
+  }
+}

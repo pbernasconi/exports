@@ -4,26 +4,75 @@
     <div class="panel panel-default">
       <div class="panel-body">
         <form #shipmentForm="ngForm" (ngSubmit)="onSubmit()">
-          <div class="form-group">
-            <label for="name">Name</label>
-            <input class="form-control" #name="ngForm" [(ngModel)]="model.name" ngControl="name" required type="text">
-            <div class="alert alert-danger" [hidden]="name.valid">Name is required</div>
+
+          <div class="new-shipment__section">
+            <h3>Overview</h3>
+            <div class="form-group">
+              <label for="name">Shipment Name</label>
+              <input class="form-control" #name="ngForm" [(ngModel)]="model.name" ngControl="name" required type="text">
+              <div class="alert alert-danger" [hidden]="name.valid">Name is required</div>
+            </div>
           </div>
-          <div class="form-group">
-            <label for="name">Origin</label>
-            <input class="form-control" #origin="ngForm" [(ngModel)]="model.origin" ngControl="origin" required type="text">
-            <div class="alert alert-danger" [hidden]="origin.valid">Name is required</div>
+
+          <div class="new-shipment__section">
+            <h3>Origin</h3>
+            <div class="form-group">
+              <label for="name">Address</label>
+              <input class="form-control" id="origin-address" type="text">
+            </div>
+
+            <div class="form-inline">
+              <div class="form-group">
+                <label for="name">Street</label>
+                <input class="form-control" #street_number="ngForm" [(ngModel)]="model.origin.street_number" type="text">
+                <input class="form-control" #street="ngForm" [(ngModel)]="model.origin.street" required type="text">
+              </div>
+              <div class="form-group">
+                <label for="name">city</label>
+                <input class="form-control" #city="ngForm" [(ngModel)]="model.origin.city" required type="text">
+              </div>
+              <div class="form-group">
+                <label for="name">state</label>
+                <input class="form-control" #state="ngForm" [(ngModel)]="model.origin.state" required type="text">
+              </div>
+              <div class="form-group">
+                <label for="name">postalCode</label>
+                <input class="form-control" #postalCode="ngForm" [(ngModel)]="model.origin.postal_code" required type="text">
+              </div>
+              <div class="form-group">
+                <label for="name">country</label>
+                <input class="form-control" #country="ngForm" [(ngModel)]="model.origin.country" required type="text">
+              </div>
+            </div>
           </div>
-          <div class="form-group">
-            <label for="name">Destination</label>
-            <input class="form-control" #destination="ngForm" [(ngModel)]="model.destination" ngControl="destination" required type="text">
-            <div class="alert alert-danger" [hidden]="destination.valid">Name is required</div>
+
+          <div class="new-shipment__section">
+            <h3>Destination</h3>
+            <div class="form-group">
+              <label for="name">Destination</label>
+              <input class="form-control" #destination="ngForm" [(ngModel)]="model.destination" ngControl="destination" required type="text">
+              <div class="alert alert-danger" [hidden]="destination.valid">Name is required</div>
+            </div>
           </div>
-          <div class="form-group">
-            <label for="name">Status</label>
-            <input class="form-control" #status="ngForm" [(ngModel)]="model.status" ngControl="status" required type="text">
-            <div class="alert alert-danger" [hidden]="status.valid">Name is required</div>
+
+          <div class="new-shipment__section">
+            <h3>Status</h3>
+            <div class="form-group">
+              <label for="name">Status</label>
+              <input class="form-control" #status="ngForm" [(ngModel)]="model.status" ngControl="status" required type="text">
+              <div class="alert alert-danger" [hidden]="status.valid">Name is required</div>
+            </div>
           </div>
+
+          <div class="new-shipment__section">
+            <h3>Cargo</h3>
+            <div class="form-group">
+              <label for="name">cargo...</label>
+              <input class="form-control" #status="ngForm" [(ngModel)]="model.status" ngControl="status" required type="text">
+              <div class="alert alert-danger" [hidden]="status.valid">Name is required</div>
+            </div>
+          </div>
+
           <button class="btn btn-default" type="submit" [disabled]="!shipmentForm.form.valid">Submit</button>
         </form>
       </div>
@@ -36,10 +85,18 @@
         Shipment Summary
       </div>
       <ul class="list-group">
-        <li class="list-group-item"><span>Name</span><span class="pull-right bold">{{model.name}}</span>
-        <li class="list-group-item"><span>Origin</span><span class="pull-right bold">{{model.origin}}</span>
-        <li class="list-group-item"><span>Destination</span><span class="pull-right bold">{{model.destination}}</span>
-        <li class="list-group-item"><span>Status</span><span class="pull-right bold">{{model.status}}</span>
+        <li class="list-group-item">
+          <span>Name</span>
+          <span class="pull-right bold">{{model.name}}</span>
+        <li class="list-group-item">
+          <span>Origin</span>
+          <span class="pull-right bold">{{model.origin}}</span>
+        <li class="list-group-item">
+          <span>Destination</span>
+          <span class="pull-right bold">{{model.destination}}</span>
+        <li class="list-group-item">
+          <span>Status</span>
+          <span class="pull-right bold">{{model.status}}</span>
         </li>
       </ul>
     </div>

@@ -16,7 +16,6 @@ SRC_TEST = $(shell find . -path './tests/*' -name '*.js')
 clean:
 	rm -rf node_modules
 	rm -rf dist
-	rm -rf tmp
 
 
 .PHONY: lint
@@ -32,7 +31,6 @@ setup: setup-hooks setup-dependencies
 .PHONY: setup-dependencies
 setup-dependencies:
 	$(NPM) install
-	$(NG) build
 
 
 .PHONY: setup-hooks
@@ -43,7 +41,7 @@ setup-hooks:
 
 .PHONY: start
 start:
-	$(MAKE) start-server & $(MAKE) start-client & open http://localhost:3000/
+	$(MAKE) start-server & $(MAKE) start-client
 
 
 .PHONY: start-server
@@ -53,7 +51,7 @@ start-server:
 
 .PHONY: start-client
 start-client:
-	$(NG) serve
+	$(GULP) build-watch
 
 
 .PHONY: test

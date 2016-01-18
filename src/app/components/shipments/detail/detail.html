@@ -1,17 +1,38 @@
 <div class="row">
 
-  <div class="col-sm-12">
+  <div class="col-sm-6">
+    <div class="panel panel-default">
+      <div class="panel-heading">Shipment Summary</div>
+      <ul class="list-group">
+        <li class="list-group-item"><span>Name</span><span class="pull-right">{{shipment.name}}</span></li>
+        <li class="list-group-item"><span>Origin</span><span class="pull-right">{{shipment.origin}}</span></li>
+        <li class="list-group-item"><span>Destination</span><span class="pull-right">{{shipment.destination}}</span></li>
+        <li class="list-group-item"><span>Status</span><span class="pull-right">{{shipment.status}}</span></li>
+      </ul>
+    </div>
+  </div>
+
+
+
+  <div class="col-sm-6">
+    <div class="panel panel-default">
+      <div class="panel-heading">Activity</div>
+      <ul class="list-group">
+        <li class="list-group-item"><span>Name</span><span class="pull-right">{{shipment.name}}</span></li>
+        <li class="list-group-item"><span>Origin</span><span class="pull-right">{{shipment.origin}}</span></li>
+        <li class="list-group-item"><span>Destination</span><span class="pull-right">{{shipment.destination}}</span></li>
+        <li class="list-group-item"><span>Status</span><span class="pull-right">{{shipment.status}}</span></li>
+      </ul>
+    </div>
+  </div>
+
+  
+  <div class="col-sm-6">
     <div class="panel panel-default">
       <div class="panel-heading">
         Shipment Summary
       </div>
-      <ul class="list-group">
-        <li class="list-group-item"><span>Name</span><span class="pull-right">{{model.name}}</span>
-        <li class="list-group-item"><span>Origin</span><span class="pull-right">{{model.origin}}</span>
-        <li class="list-group-item"><span>Destination</span><span class="pull-right">{{model.destination}}</span>
-        <li class="list-group-item"><span>Status</span><span class="pull-right">{{model.status}}</span>
-        </li>
-      </ul>
+        <div class="" id="shipment-detail-map"></div>
     </div>
   </div>
 

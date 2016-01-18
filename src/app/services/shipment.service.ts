@@ -4,7 +4,7 @@ import 'rxjs/add/operator/map'
 
 @Injectable()
 export class ShipmentService {
-  shipments;
+  shipments: Array<any>;
 
   constructor(public http: Http) { }
 
@@ -12,7 +12,7 @@ export class ShipmentService {
     return this.http.get('/api/shipment/').map(res => res.json());
   }
 
-  getOne(id) {
+  getOne(id: String) {
     return this.http.get('/api/shipment/' + id).map(res => res.json());
   }
 
@@ -28,7 +28,7 @@ export class ShipmentService {
     return this.http.patch('/api/shipment/', shipment).map(res => res.json());
   }
 
-  logError(error) {
+  logError(error: String) {
     console.log(error);
   }
 }

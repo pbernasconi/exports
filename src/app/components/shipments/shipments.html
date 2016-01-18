@@ -14,7 +14,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr (click)="openShipmentDetail(shipment)" *ngFor="#shipment of shipments">
+          <tr class="list-shipments" (click)="openShipmentDetail(shipment)" *ngFor="#shipment of shipments">
             <td>{{shipment.name}}</td>
             <td>{{shipment.origin}}</td>
             <td>{{shipment.desination}}</td>

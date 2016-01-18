@@ -34,8 +34,10 @@ header.top-header {
   border-bottom: 1px solid #5E6567;
 }
 
-.side-nav .nav-component:hover {
+.side-nav .nav-component:hover,
+.side-nav .nav-component.router-link-active {
   cursor: pointer;
+  background: rgba(94, 101, 103, 0.5);
 }
 
 .main-content {
@@ -44,4 +46,32 @@ header.top-header {
   top: 70px;
   padding: 25px;
   background: #E5E9EC;
+}
+
+
+/* shipment list */
+
+.list-shipments {
+  height: 44px;
+  cursor: pointer;
+}
+
+.list-shipments:hover {
+  background: #F6F6F6;
+  cursor: pointer;
+}
+
+
+/* shipment detail */
+
+#shipment-detail-map {
+  height: 300px;
+}
+
+
+/* New shipment */
+
+.new-shipment__section {
+  padding: 10px 0 30px 0;
+  border-bottom: 1px solid rgba(128, 128, 128, 0.2);
 }

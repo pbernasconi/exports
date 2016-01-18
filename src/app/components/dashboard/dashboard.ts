@@ -1,15 +1,7 @@
 import {Component} from 'angular2/core';
 
-
 @Component({
   selector: 'dashboard',
-  templateUrl: 'app/components/dashboard/dashboard.html',
-  providers: [],
-  directives: [],
-  pipes: []
+  templateUrl: 'app/components/dashboard/dashboard.html'
 })
-export class Dashboard {
-
-  constructor() {}
-
-}
+export class Dashboard { }
