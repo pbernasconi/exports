@@ -3,6 +3,7 @@ GULP = node_modules/.bin/gulp
 JSCS = node_modules/.bin/jscs --esnext --config jscs.json
 JSHINT = node_modules/.bin/jshint --extract=auto --config jshint.json
 MOHCA = node_modules/.bin/mocha --harmony
+NODE = node
 NODEMON = node_modules/.bin/nodemon --ext hbs,js,json --watch lib --harmony ./lib/server.js
 NPM = npm
 NG = node_modules/.bin/ng
@@ -32,9 +33,19 @@ setup: setup-dependencies
 setup-dependencies:
 	$(NPM) install
 
+.PHONY: setup-dist
+setup:
+	$(GULP) build
+
 
 .PHONY: start
 start:
+	$(GULP) build
+	$(NODE) ./lib/server.js
+
+
+.PHONY: watch
+watch:
 	$(MAKE) start-server & $(MAKE) start-client
 
 
