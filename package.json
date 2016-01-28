@@ -1,13 +1,16 @@
 {
   "name": "exports",
   "version": "0.0.1",
+  "engines": {
+    "node": "0.12.x"
+  },
   "dependencies": {
     "angular2": "2.0.0-beta.0",
     "angular2-google-maps": "0.6.x",
     "bcrypt": "0.8.x",
     "bluebird": "3.1.x",
     "co-body": "4.0.x",
-    "envvar": "^1.0.0",
+    "envvar": "1.0.x",
     "es6-promise": "3.0.2",
     "es6-shim": "0.33.3",
     "koa": "1.1.x",
@@ -26,18 +29,19 @@
     "reflect-metadata": "0.1.2",
     "rxjs": "5.0.0-beta.0",
     "systemjs": "0.19.6",
-    "zone.js": "0.5.10"
+    "zone.js": "0.5.10",
+    "gulp": "3.9.x",
+    "nodemon": "1.8.x"
   },
   "devDependencies": {
-    "browser-sync": "^2.10.0",
-    "del": "^2.1.0",
-    "gulp": "^3.9.0",
-    "gulp-sourcemaps": "^1.6.0",
-    "gulp-tslint": "^3.6.0",
-    "gulp-typescript": "^2.8.0",
+    "browser-sync": "2.10.x",
+    "del": "2.1.x",
+    "gulp-sourcemaps": "1.6.x",
+    "gulp-tslint": "3.6.x",
+    "gulp-typescript": "2.8.x",
     "jscs": "2.7.x",
     "jshint": "2.8.x",
     "nodemon": "1.8.x",
-    "typescript": "^1.7.5"
+    "typescript": "1.7.x"
   }
 }
