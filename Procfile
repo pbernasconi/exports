@@ -1,1 +1,1 @@
-web: make setup start
+web: make start
