@@ -25,18 +25,12 @@ lint:
 
 
 .PHONY: setup
-setup: setup-hooks setup-dependencies
+setup: setup-dependencies
 
 
 .PHONY: setup-dependencies
 setup-dependencies:
 	$(NPM) install
-
-
-.PHONY: setup-hooks
-setup-hooks:
-	chmod oug+x githooks/*
-	cp githooks/* .git/hooks/
 
 
 .PHONY: start
