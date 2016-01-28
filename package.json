@@ -2,7 +2,7 @@
   "name": "exports",
   "version": "0.0.1",
   "engines": {
-    "node": "0.12.x"
+    "node": "4.2.4"
   },
   "dependencies": {
     "angular2": "2.0.0-beta.0",
@@ -31,9 +31,7 @@
     "systemjs": "0.19.6",
     "zone.js": "0.5.10",
     "gulp": "3.9.x",
-    "nodemon": "1.8.x"
-  },
-  "devDependencies": {
+    "nodemon": "1.8.x",
     "browser-sync": "2.10.x",
     "del": "2.1.x",
     "gulp-sourcemaps": "1.6.x",
