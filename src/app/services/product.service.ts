@@ -1,10 +1,14 @@
-import {Injectable} from 'angular2/core';
+import {Inject, Injectable} from 'angular2/core';
 import {Http, Headers, Response} from 'angular2/http';
 import 'rxjs/add/operator/map';
 
 @Injectable()
 export class ProductService {
-  constructor(public http: Http) { }
+  http: Http;
+
+  constructor( @Inject(Http) http: Http) {
+    this.http = http;
+  }
 
   getAll() {
     return this.http.get('/api/product/').map(res => res.json());
