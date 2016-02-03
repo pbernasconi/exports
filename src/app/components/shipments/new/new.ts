@@ -93,8 +93,11 @@ export class ShipmentNew {
 
       this.zone.run(() => {
         for (let component in this.componentForm) {
-          self.model.origin[this.componentForm[component]] = '';
+          this.model.origin[this.componentForm[component]] = '';
         }
+
+        this.model.origin.coordinates.lon = place.geometry.location.lng();
+        this.model.origin.coordinates.lat = place.geometry.location.lat();
 
         for (var i = 0; i < place.address_components.length; i++) {
           var addressType = place.address_components[i].types[0];
@@ -115,11 +118,14 @@ export class ShipmentNew {
       let place = this.destinationAutocomplete.getPlace();
 
       this.zone.run(() => {
-
         for (let component in this.componentForm) {
           this.model.destination[this.componentForm[component]] = '';
         }
 
+        this.model.destination.coordinates.lon = place.geometry.location.lng();
+        this.model.destination.coordinates.lat = place.geometry.location.lat();
+
+        console.log(this.model.destination)
         for (var i = 0; i < place.address_components.length; i++) {
           var addressType = place.address_components[i].types[0];
           if (this.componentForm[addressType]) {
@@ -132,9 +138,9 @@ export class ShipmentNew {
   }
 
   selectProduct(product) {
-    this.model.products.push(product._id);
-
-
+    this.zone.run(() => {
+      this.model.products.push(product);
+    });
   }
 
   onSubmit() {

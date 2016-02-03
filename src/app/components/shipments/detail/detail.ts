@@ -10,7 +10,7 @@ import {ShipmentService} from '../../../services/shipment.service';
   providers: [ShipmentService]
 })
 export class ShipmentDetail implements OnInit {
-  public shipment: Object;
+  public shipment;
   private google;
 
   constructor(
@@ -20,39 +20,46 @@ export class ShipmentDetail implements OnInit {
     ) { }
 
   ngOnInit() {
-    this.shipment = {};
-    this._shipmentService.getOne(this._routeParams.get('id'))
-      .subscribe(result => {
+    this.shipment = {
+      origin: {},
+      destination: {},
+      weight: {}
+    };
+    this._shipmentService.getOne(this._routeParams.get('id')).subscribe(result => {
       console.log(result);
       this.shipment = result;
-    });
 
-    var chicago = { lat: 41.85, lng: -87.65 };
-    var indianapolis = { lat: 39.79, lng: -86.14 };
+      var origin = {
+        lat: this.shipment.origin.coordinates.lat,
+        lng: this.shipment.origin.coordinates.lon,
+      };
+      var destination = {
+        lat: this.shipment.destination.coordinates.lat,
+        lng: this.shipment.destination.coordinates.lon,
+      };
 
-    var map = new window.google.maps.Map(document.getElementById('shipment-detail-map'), {
-      center: chicago,
-      scrollwheel: false,
-    });
+      var map = new window.google.maps.Map(document.getElementById('shipment-detail-map'), {
+        center: origin,
+        scrollwheel: false,
+      });
 
-    var directionsDisplay = new window.google.maps.DirectionsRenderer({
-      map: map
-    });
+      var directionsDisplay = new window.google.maps.DirectionsRenderer({
+        map: map
+      });
 
-    // Set destination, origin and travel mode.
-    var request = {
-      destination: indianapolis,
-      origin: chicago,
-      travelMode: window.google.maps.TravelMode.DRIVING
-    };
+      var request = {
+        destination: destination,
+        origin: origin,
+        travelMode: window.google.maps.TravelMode.DRIVING
+      };
 
-    // Pass the directions request to the directions service.
-    var directionsService = new window.google.maps.DirectionsService();
-    directionsService.route(request, function(response, status) {
-      if (status == window.google.maps.DirectionsStatus.OK) {
-        // Display the route on the map.
-        directionsDisplay.setDirections(response);
-      }
+      var directionsService = new window.google.maps.DirectionsService();
+      directionsService.route(request, function(response, status) {
+        if (status == window.google.maps.DirectionsStatus.OK) {
+          directionsDisplay.setDirections(response);
+        }
+      });
+
     });
   }
 }

@@ -4,21 +4,52 @@
     <div class="panel panel-default">
       <div class="panel-heading">Shipment Summary</div>
       <ul class="list-group">
-        <li class="list-group-item"><span>Name</span><span class="pull-right">{{shipment.name}}</span></li>
-        <li class="list-group-item"><span>Origin</span><span class="pull-right">{{shipment.origin}}</span></li>
-        <li class="list-group-item"><span>Destination</span><span class="pull-right">{{shipment.destination}}</span></li>
-        <li class="list-group-item"><span>Status</span><span class="pull-right">{{shipment.status}}</span></li>
+        <li class="list-group-item">
+          Name
+          <span class="pull-right bold">{{shipment.name}}</span>
+        </li>
+        <li class="list-group-item">
+          Origin
+          <span class="pull-right bold">{{shipment.origin.city + ', '}}{{shipment.origin.country}}</span>
+        </li>
+        <li class="list-group-item">
+          Destination
+          <span class="pull-right bold">{{shipment.destination.city + ', '}}{{shipment.destination.country}}</span>
+        </li>
+        <li class="list-group-item">
+          departure_date
+          <span class="pull-right bold">{{shipment.departure_date}}</span>
+        </li>
+        <li class="list-group-item">
+          arrival_date
+          <span class="pull-right bold">{{shipment.arrival_date}}</span>
+        </li>
+        <li class="list-group-item">
+          products
+          <ul class="sub-list">
+            <li *ngFor="#prod of shipment.products">
+              <span class="pull-right bold">{{prod.name}}</span>
+            </li>
+          </ul>
+        </li>
+        <li class="list-group-item">
+          Weight (total)
+          <span class="pull-right bold">{{shipment.weight.total}}</span>
+        </li>
+        <li class="list-group-item">
+          Weight (net)
+          <span class="pull-right bold">{{shipment.weight.net}}</span>
+        </li>
       </ul>
     </div>
   </div>
-
 
   <div class="col-sm-6">
     <div class="panel panel-default">
       <div class="panel-heading">
         Shipment Summary
       </div>
-        <div class="" id="shipment-detail-map"></div>
+      <div class="" id="shipment-detail-map"></div>
     </div>
   </div>
 
@@ -44,7 +75,10 @@
     <div class="panel panel-default">
       <div class="panel-heading">Products</div>
       <ul class="list-group" *ngFor="#product of shipment.products">
-        <li class="list-group-item"><span>Name</span><span class="pull-right">{{product}}</span></li>
+        <li class="list-group-item">
+          <span>Name</span>
+          <span class="pull-right">{{product}}</span>
+        </li>
       </ul>
     </div>
   </div>

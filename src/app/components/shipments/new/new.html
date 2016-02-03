@@ -8,9 +8,58 @@
         <div class="panel-body">
           <div class="form-horizontal">
             <div class="form-group">
-              <label for="name" class="col-sm-2 control-label">Shipment Name</label>
-              <div class="col-sm-10">
-                <input class="form-control" #name="ngForm" [(ngModel)]="model.name" ngControl="name" type="text">
+              <label for="name" class="col-sm-3 control-label">Shipment Name</label>
+              <div class="col-sm-9">
+                <input class="form-control" #name="ngForm" [(ngModel)]="model.name" type="text">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="name" class="col-sm-3 control-label">Freight Type</label>
+              <div class="col-sm-9">
+                <div class="radio">
+
+                  <label>
+                    <input type="radio" name="freight_type" [(ngModel)]="model.freight_type" value="option1" checked="">
+                    Door to Door (EXW)
+                  </label>
+                </div>
+                <div class="radio">
+                  <label>
+                    <input type="radio" name="freight_type" [(ngModel)]="model.freight_type" value="option2">
+                    Port to Door (FOB)
+                  </label>
+                </div>
+                <div class="radio">
+                  <label>
+                    <input type="radio" name="freight_type" [(ngModel)]="model.freight_type" value="option3">
+                    Door to Port (EXW)
+                  </label>
+                </div>
+                <div class="radio">
+                  <label>
+                    <input type="radio" name="freight_type" [(ngModel)]="model.freight_type" value="option3">
+                    Port to Door (FOB)
+                  </label>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="name" class="col-sm-3 control-label">Freight Method</label>
+              <div class="col-sm-9">
+                <label class="radio-inline">
+                  <input type="radio" name="shipment_method" [(ngModel)]="model.shipment_method" value="option1" checked="">
+                  Ocean Freight
+                </label>
+                <label class="radio-inline">
+                  <input type="radio" name="shipment_method" [(ngModel)]="model.shipment_method" value="option2">
+                  Air Freight
+                </label>
+                <label class="radio-inline">
+                  <input type="radio" name="shipment_method" [(ngModel)]="model.shipment_method" value="option3">
+                  Truck Only
+                </label>
               </div>
             </div>
           </div>
@@ -72,7 +121,6 @@
         <div class="panel-heading">Destination</div>
         <div class="panel-body">
           <div class="form-horizontal">
-
             <div class="form-group">
               <label for="name" class="col-sm-2 control-label">Address</label>
               <div class="col-sm-10"><input class="form-control" id="destination-address" type="text"></div>
@@ -144,16 +192,23 @@
       </div>
 
       <div class="panel panel-default">
-        <div class="panel-heading">Products</div>
+        <div class="panel-heading">Weight</div>
         <div class="panel-body">
-          <div class="form-group">
-            <label for="name">Status</label>
-            <input class="form-control" #status="ngForm" [(ngModel)]="model.status" type="text">
-          </div>
+          <div class="form-horizontal">
 
-          <div class="form-group">
-            <label for="name">Cargo</label>
-            <input class="form-control" #cargo="ngForm" [(ngModel)]="model.cargo" type="text">
+            <div class="form-group">
+              <label class="col-sm-2 control-label">Total</label>
+              <div class="col-sm-10">
+                <input class="form-control" #status="ngForm" [(ngModel)]="model.weight.total" type="number">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="col-sm-2 control-label">Net</label>
+              <div class="col-sm-10">
+                <input class="form-control" #cargo="ngForm" [(ngModel)]="model.weight.net" type="number">
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -167,21 +222,20 @@
   </div>
 
   <div class="col-sm-4">
-    <div class="panel panel-default">
+    <div class="panel panel-default shipment__summary">
       <div class="panel-heading">Shipment Summary</div>
       <ul class="list-group">
         <li class="list-group-item">
           Name
           <span class="pull-right bold">{{model.name}}</span>
+        </li>
         <li class="list-group-item">
           Origin
           <span class="pull-right bold">{{model.origin.city + ', '}}{{model.origin.country}}</span>
+        </li>
         <li class="list-group-item">
           Destination
           <span class="pull-right bold">{{model.destination.city + ', '}}{{model.destination.country}}</span>
-        <li class="list-group-item">
-          Status
-          <span class="pull-right bold">{{model.status}}</span>
         </li>
         <li class="list-group-item">
           departure_date
@@ -190,6 +244,14 @@
         <li class="list-group-item">
           arrival_date
           <span class="pull-right bold">{{model.arrival_date | date:'yMMMMd'}}</span>
+        </li>
+        <li class="list-group-item">
+          products
+          <ul class="sub-list">
+            <li *ngFor="#prod of model.products">
+              <span class="pull-right bold">{{prod.name}}</span>
+            </li>
+          </ul>
         </li>
         <li class="list-group-item">
           Weight (total)

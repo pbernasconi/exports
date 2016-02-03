@@ -1,6 +1,6 @@
 <div class="row">
 
-  <div class="col-sm-8">
+  <div class="col-sm-12">
     <div class="panel panel-default">
       <div class="panel-heading">Active Shipments</div>
       <table class="table">
@@ -16,8 +16,8 @@
         <tbody>
           <tr class="list-shipments" (click)="openShipmentDetail(shipment)" *ngFor="#shipment of shipments">
             <td>{{shipment.name}}</td>
-            <td>{{shipment.origin}}</td>
-            <td>{{shipment.desination}}</td>
+            <td>{{shipment.origin.city + ', '}}{{shipment.origin.country}}</td>
+            <td>{{shipment.destination.city + ', '}}{{shipment.destination.country}}</td>
             <td>{{shipment.delivery}}</td>
             <td>{{shipment.status}}</td>
           </tr>
@@ -30,6 +30,10 @@
     </div>
   </div>
 
+</div>
+
+<div class="row">
+
   <div class="col-sm-4">
     <div class="panel panel-default">
       <div class="panel-heading">
@@ -40,5 +44,4 @@
       </div>
     </div>
   </div>
-
 </div>

@@ -71,13 +71,22 @@ header.top-header {
 
 /* New shipment */
 
-.new-shipment__section {
-  padding: 10px 0 30px 0;
-  border-bottom: 1px solid rgba(128, 128, 128, 0.2);
+.shipment__summary {
+  position: fixed;
+  top: 96px;
+  width: 25%;
 }
 
-.new-shipment__section h1 {
-  padding-bottom: 20px;
+.sub-list li {
+  padding: 12px 0;
+}
+
+.sub-list li:first-of-type {
+  margin-top: -20px;
+}
+
+.sub-list li:last-of-type {
+  margin-bottom: 15px;
 }
 
 .form-group label {
