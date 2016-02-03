@@ -1,7 +1,7 @@
 <div class="row">
 
   <div class="col-sm-8">
-    <form #shipmentForm="ngForm" (ngSubmit)="onSubmit()">
+    <form #shipmentForm="ngForm" (ngSubmit)="onSubmit()" (change)="logForm($event)">
 
       <div class="panel panel-default">
         <div class="panel-heading">Overview</div>
@@ -18,27 +18,26 @@
               <label for="name" class="col-sm-3 control-label">Freight Type</label>
               <div class="col-sm-9">
                 <div class="radio">
-
                   <label>
-                    <input type="radio" name="freight_type" [(ngModel)]="model.freight_type" value="option1" checked="">
+                    <input type="radio" name="freight_type" #freight_type [(ngModel)]="model.freight_type" value="EWX" checked>
                     Door to Door (EXW)
                   </label>
                 </div>
                 <div class="radio">
                   <label>
-                    <input type="radio" name="freight_type" [(ngModel)]="model.freight_type" value="option2">
+                    <input type="radio" name="freight_type" #freight_type [(ngModel)]="model.freight_type" value="FOB">
                     Port to Door (FOB)
                   </label>
                 </div>
                 <div class="radio">
                   <label>
-                    <input type="radio" name="freight_type" [(ngModel)]="model.freight_type" value="option3">
+                    <input type="radio" name="freight_type" #freight_type [(ngModel)]="model.freight_type" value="option3">
                     Door to Port (EXW)
                   </label>
                 </div>
                 <div class="radio">
                   <label>
-                    <input type="radio" name="freight_type" [(ngModel)]="model.freight_type" value="option3">
+                    <input type="radio" name="freight_type" #freight_type [(ngModel)]="model.freight_type" value="option3">
                     Port to Door (FOB)
                   </label>
                 </div>
@@ -99,6 +98,34 @@
               <label class="col-sm-3 control-label">Container Number</label>
               <div class="col-sm-9">
                 <input class="form-control" #container_number="ngForm" [(ngModel)]="model.container.number" type="text">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="col-sm-3 control-label">IMO Class</label>
+              <div class="col-sm-9">
+                <select class="form-control" #container_type="ngForm" [(ngModel)]="model.container">
+                  <option>No Hazardous</option>
+                  <option>Class 1.1</option>
+                  <option>Class 1.2</option>
+                  <option>Class 1.3</option>
+                  <option>Class 1.4</option>
+                  <option>Class 1.5</option>
+                  <option>Class 1.6</option>
+                  <option>Class 2.1</option>
+                  <option>Class 2.2</option>
+                  <option>Class 2.3</option>
+                  <option>Class 3</option>
+                  <option>Class 4.1</option>
+                  <option>Class 4.2</option>
+                  <option>Class 4.3</option>
+                  <option>Class 5.1</option>
+                  <option>Class 5.2</option>
+                  <option>Class 6</option>
+                  <option>Class 7</option>
+                  <option>Class 8</option>
+                  <option>Class 9</option>
+                </select>
               </div>
             </div>
 
@@ -246,6 +273,27 @@
                 </select>
               </div>
             </div>
+
+            <div class="form-group">
+              <label for="name" class="col-sm-3 control-label">IMO</label>
+              <div class="col-sm-9">
+                <input class="form-control" #imo="ngForm" [(ngModel)]="model.carrier.imo" type="text">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="name" class="col-sm-3 control-label">MMSI</label>
+              <div class="col-sm-9">
+                <input class="form-control" #imo="ngForm" [(ngModel)]="model.carrier.mmsi" type="text">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="name" class="col-sm-3 control-label">Call Sign</label>
+              <div class="col-sm-9">
+                <input class="form-control" #imo="ngForm" [(ngModel)]="model.carrier.call_sign" type="text">
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -258,9 +306,9 @@
             <input class="dropzone__hiddeninput" (change)="handleOnFileChange($event)" type="file" multiple="multiple" style="visibility: hidden; position: absolute; top: 0px; left: 0px; height: 0px; width: 0px;">
           </div>
         </div>
-        <div class="panel-body">
-          <div class="document__container" *ngFor="#document of documents">
-            <div class="document__icon"></div>
+        <div class="panel-body" *ngIf="model.documents.length > 0">
+          <div class="document__container" *ngFor="#document of model.documents">
+            <div class="document__icon {{document.type}}"></div>
             <div class="document__text">
               <h4>{{ document.name }}</h4>
               <p>{{ document.size }}

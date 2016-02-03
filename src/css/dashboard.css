@@ -111,17 +111,17 @@ header.top-header {
 }
 
 .document__container {
-  display: block;
+  display: inline-block;
   margin: 15px 0px;
+  width: 50%;
 }
 
 .document__icon {
   display: inline-block;
-  height: 110px;
-  width: 80px;
-  border: 1px solid #D2D2D2;
-  border-radius: 4px;
-  background: #F5F5F5;
+  background: url(../images/file-icon.png) no-repeat;
+  height: 105px;
+  width: 88px;
+  background-size: 100% 100%;
 }
 
 .document__text {

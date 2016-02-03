@@ -17,7 +17,6 @@ export class ShipmentNew {
   public destinationAutocomplete;
   public componentForm;
   public products: Array<any>;
-  public documents: Array<Object> = [];
   zone: NgZone;
 
 
@@ -34,6 +33,8 @@ export class ShipmentNew {
       name: 'New shipment',
       freight_type: '',
       shipment_method: '',
+      products: [],
+      documents: [],
       container: {
         type: '',
         number: '',
@@ -41,6 +42,11 @@ export class ShipmentNew {
       weight: {
         total: 0,
         net: 0,
+      },
+      carrier: {
+        imo: null,
+        mmsi: null,
+        call_sign: null,
       },
       origin: {
         street: '',
@@ -68,8 +74,6 @@ export class ShipmentNew {
       },
       departure_date: new Date(),
       arrival_date: new Date(),
-      status: '',
-      products: [],
     };
 
     this.componentForm = {
@@ -83,6 +87,11 @@ export class ShipmentNew {
 
     this.initOriginAddress();
     this.initDestinationAddress();
+  }
+
+
+  logForm(e) {
+    console.log(this.model);
   }
 
   initOriginAddress() {
@@ -161,7 +170,8 @@ export class ShipmentNew {
     var files: File = e.dataTransfer.files;
     var self = this;
     Object.keys(files).forEach((key) => {
-      self.documents.push(files[key]);
+      console.log(files)
+      self.model.documents.push(files[key]);
     });
 
     return false;
@@ -173,7 +183,7 @@ export class ShipmentNew {
     files = e.target.files;
     if (files.length) {
       Object.keys(files).forEach((key) => {
-        self.documents.push(files[key]);
+        self.model.documents.push(files[key]);
       });
     }
   }
