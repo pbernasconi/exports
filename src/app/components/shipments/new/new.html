@@ -1,105 +1,169 @@
 <div class="row">
 
   <div class="col-sm-8">
-    <div class="panel panel-default">
-      <div class="panel-body">
-        <form #shipmentForm="ngForm" (ngSubmit)="onSubmit()">
+    <form #shipmentForm="ngForm" (ngSubmit)="onSubmit()">
 
-          <div class="new-shipment__section">
-            <h1>Overview</h1>
+      <div class="panel panel-default">
+        <div class="panel-heading">Overview</div>
+        <div class="panel-body">
+          <div class="form-horizontal">
             <div class="form-group">
-              <label for="name">Shipment Name</label>
-              <input class="form-control" #name="ngForm" [(ngModel)]="model.name" ngControl="name" required type="text">
-              <div class="alert alert-danger" [hidden]="name.valid">Name is required</div>
-            </div>
-          </div>
-
-          <div class="new-shipment__section">
-            <h1>Origin</h1>
-            <div class="form-group">
-              <label for="name">Address</label>
-              <input class="form-control" id="origin-address" type="text">
-            </div>
-
-            <div class="form-inline">
-              <div class="form-group">
-                <label for="name">Street</label>
-                <input class="form-control" #origin_street_number="ngForm" [(ngModel)]="model.origin.street_number" type="text">
-                <input class="form-control" #origin_street="ngForm" [(ngModel)]="model.origin.street" required type="text">
-              </div>
-              <div class="form-group">
-                <label for="name">city</label>
-                <input class="form-control" #origin_city="ngForm" [(ngModel)]="model.origin.city" required type="text">
-              </div>
-              <div class="form-group">
-                <label for="name">state</label>
-                <input class="form-control" #origin_state="ngForm" [(ngModel)]="model.origin.state" required type="text">
-              </div>
-              <div class="form-group">
-                <label for="name">postalCode</label>
-                <input class="form-control" #origin_postal_code="ngForm" [(ngModel)]="model.origin.postal_code" required type="text">
-              </div>
-              <div class="form-group">
-                <label for="name">country</label>
-                <input class="form-control" #origin_country="ngForm" [(ngModel)]="model.origin.country" required type="text">
+              <label for="name" class="col-sm-2 control-label">Shipment Name</label>
+              <div class="col-sm-10">
+                <input class="form-control" #name="ngForm" [(ngModel)]="model.name" ngControl="name" type="text">
               </div>
             </div>
           </div>
-
-          <div class="new-shipment__section">
-            <h1>Destination</h1>
-            <div class="form-group">
-              <label for="name">Destination</label>
-              <input class="form-control" id="destination-address" required type="text">
-            </div>
-
-            <div class="form-inline">
-              <div class="form-group">
-                <label for="name">Street</label>
-                <input class="form-control" #destination_street_number="ngForm" [(ngModel)]="model.destination.street_number" type="text">
-                <input class="form-control" #destination_street="ngForm" [(ngModel)]="model.destination.street" required type="text">
-              </div>
-              <div class="form-group">
-                <label for="name">city</label>
-                <input class="form-control" #destination_city="ngForm" [(ngModel)]="model.destination.city" required type="text">
-              </div>
-              <div class="form-group">
-                <label for="name">state</label>
-                <input class="form-control" #destination_state="ngForm" [(ngModel)]="model.destination.state" required type="text">
-              </div>
-              <div class="form-group">
-                <label for="name">postalCode</label>
-                <input class="form-control" #destination_postal_code="ngForm" [(ngModel)]="model.destination.postal_code" required type="text">
-              </div>
-              <div class="form-group">
-                <label for="name">country</label>
-                <input class="form-control" #destination_country="ngForm" [(ngModel)]="model.destination.country" required type="text">
-              </div>
-            </div>
-          </div>
-
-          <div class="new-shipment__section">
-            <h1>Status</h1>
-            <div class="form-group">
-              <label for="name">Status</label>
-              <input class="form-control" #status="ngForm" [(ngModel)]="model.status" ngControl="status" required type="text">
-              <div class="alert alert-danger" [hidden]="status.valid">Name is required</div>
-            </div>
-          </div>
-
-          <div class="new-shipment__section">
-            <h1>Cargo</h1>
-            <div class="form-group">
-              <label for="name">Cargo</label>
-              <input class="form-control" #cargo="ngForm" [(ngModel)]="model.cargo" ngControl="cargo" required type="text">
-              <div class="alert alert-danger" [hidden]="cargo.valid">Name is required</div>
-            </div>
-          </div>
-
-          <button class="btn btn-default" type="submit" [disabled]="!shipmentForm.form.valid">Submit</button>
-        </form>
+        </div>
       </div>
-    </div>
+
+      <div class="panel panel-default">
+        <div class="panel-heading">Origin</div>
+        <div class="panel-body">
+          <div class="form-horizontal">
+
+            <div class="form-group">
+              <label for="name" class="col-sm-2 control-label">Address</label>
+              <div class="col-sm-10">
+                <input class="form-control" id="origin-address" type="text">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="name" class="col-sm-2 control-label">Street</label>
+              <div class="col-sm-5">
+                <input class="form-control" #origin_street_number="ngForm" [(ngModel)]="model.origin.street_number" type="text">
+              </div>
+              <div class="col-sm-5">
+                <input class="form-control" #origin_street="ngForm" [(ngModel)]="model.origin.street" type="text">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="name" class="col-sm-2 control-label">city</label>
+              <div class="col-sm-10">
+                <input class="form-control" #origin_city="ngForm" [(ngModel)]="model.origin.city" type="text">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="name" class="col-sm-2 control-label">state</label>
+              <div class="col-sm-10">
+                <input class="form-control" #origin_state="ngForm" [(ngModel)]="model.origin.state" type="text">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="name" class="col-sm-2 control-label">postalCode</label>
+              <div class="col-sm-10">
+
+                <input class="form-control" #origin_postal_code="ngForm" [(ngModel)]="model.origin.postal_code" type="text">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="name" class="col-sm-2 control-label">country</label>
+              <div class="col-sm-10">
+                <input class="form-control" #origin_country="ngForm" [(ngModel)]="model.origin.country" type="text">
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="panel panel-default">
+        <div class="panel-heading">Destination</div>
+        <div class="panel-body">
+          <div class="form-horizontal">
+
+            <div class="form-group">
+              <label for="name" class="col-sm-2 control-label">Address</label>
+              <div class="col-sm-10"><input class="form-control" id="destination-address" type="text"></div>
+            </div>
+
+            <div class="form-group">
+              <label for="name" class="col-sm-2 control-label">Street</label>
+              <div class="col-sm-5">
+                <input class="form-control" #destination_street_number="ngForm" [(ngModel)]="model.destination.street_number" type="text">
+              </div>
+              <div class="col-sm-5">
+                <input class="form-control" #destination_street="ngForm" [(ngModel)]="model.destination.street" type="text">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="name" class="col-sm-2 control-label">city</label>
+              <div class="col-sm-10">
+                <input class="form-control" #destination_city="ngForm" [(ngModel)]="model.destination.city" type="text">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="name" class="col-sm-2 control-label">state</label>
+              <div class="col-sm-10">
+                <input class="form-control" #destination_state="ngForm" [(ngModel)]="model.destination.state" type="text">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="name" class="col-sm-2 control-label">postalCode</label>
+              <div class="col-sm-10"><input class="form-control" #destination_postal_code="ngForm" [(ngModel)]="model.destination.postal_code" type="text"></div>
+            </div>
+
+            <div class="form-group">
+              <label for="name" class="col-sm-2 control-label">country</label>
+              <div class="col-sm-10"><input class="form-control" #destination_country="ngForm" [(ngModel)]="model.destination.country" type="text"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel panel-default">
+        <div class="panel-heading">Products</div>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Nickname</th>
+              <th>H.S. Code</th>
+              <th>UPC Code</th>
+              <th>Unit cost</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="list-shipments" (click)="selectProduct(product)" *ngFor="#product of products">
+              <td>{{product.name}}</td>
+              <td>{{product.nickname}}</td>
+              <td>{{product.hs_code}}</td>
+              <td>{{product.upc_code}}</td>
+              <td>{{product.unit_cost.amount}}
+                {{product.unit_cost.currency}}</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="panel-body" *ngIf="products.length === 0">
+          No active products available
+        </div>
+      </div>
+
+      <div class="panel panel-default">
+        <div class="panel-heading">Products</div>
+        <div class="panel-body">
+          <div class="form-group">
+            <label for="name">Status</label>
+            <input class="form-control" #status="ngForm" [(ngModel)]="model.status" type="text">
+          </div>
+
+          <div class="form-group">
+            <label for="name">Cargo</label>
+            <input class="form-control" #cargo="ngForm" [(ngModel)]="model.cargo" type="text">
+          </div>
+        </div>
+      </div>
+
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <button class="btn btn-primary btn-lg btn-block" type="submit">Submit</button>
+        </div>
+      </div>
+    </form>
   </div>
 
   <div class="col-sm-4">
@@ -137,6 +201,5 @@
         </li>
       </ul>
     </div>
-  </div>
 
-</div>
+  </div>

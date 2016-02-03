@@ -3,26 +3,31 @@ import {Router} from 'angular2/router';
 import {NgFor, NgForm, FORM_DIRECTIVES} from 'angular2/common';
 
 import {ShipmentService} from '../../../services/shipment.service';
-
+import {ProductService} from '../../../services/product.service';
 
 @Component({
   selector: 'new-shipment',
   templateUrl: 'app/components/shipments/new/new.html',
   directives: [NgFor, NgForm, FORM_DIRECTIVES],
-  providers: [ShipmentService],
+  providers: [ShipmentService, ProductService],
 })
 export class ShipmentNew {
   public model;
   public originAutocomplete;
   public destinationAutocomplete;
   public componentForm;
+  public products: Array<any>;
   zone: NgZone;
+
 
   constructor(
     private _shipmentService: ShipmentService,
+    private _productService: ProductService,
     private _router: Router,
     _zone: NgZone
     ) {
+    this.products = [];
+    this._productService.getAll().subscribe(result => this.products = result);
     this.zone = _zone;
     this.model = {
       name: 'New shipment',
@@ -60,6 +65,7 @@ export class ShipmentNew {
       departure_date: new Date(),
       arrival_date: new Date(),
       status: '',
+      products: [],
     };
 
     this.componentForm = {
@@ -125,9 +131,19 @@ export class ShipmentNew {
     });
   }
 
+  selectProduct(product) {
+    this.model.products.push(product._id);
+
+
+  }
+
   onSubmit() {
-    this._shipmentService.createOne(this.model).subscribe(result => {
-      this._router.navigate(['Shipments']);
-    });
+    this._shipmentService.createOne(this.model).subscribe(
+      result => {
+        this._router.navigate(['Shipments']);
+      },
+      err => {
+        console.log(err);
+      });
   }
 }

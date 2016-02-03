@@ -1,11 +1,9 @@
 import {Injectable} from 'angular2/core';
 import {Http, Headers, Response} from 'angular2/http';
-import 'rxjs/add/operator/map'
+import 'rxjs/add/operator/map';
 
 @Injectable()
 export class ProductService {
-  shipments: Array<any>;
-
   constructor(public http: Http) { }
 
   getAll() {

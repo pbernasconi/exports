@@ -7,13 +7,19 @@
         <thead>
           <tr>
             <th>Name</th>
-            <th>Status</th>
+            <th>Nickname</th>
+            <th>H.S. Code</th>
+            <th>UPC Code</th>
+            <th>Unit cost</th>
           </tr>
         </thead>
         <tbody>
-          <tr class="list-shipments" (click)="openProductDetail(product)" *ngFor="#prod of products">
-            <td>{{prod.name}}</td>
-            <td>{{prod.status}}</td>
+          <tr class="list-shipments" (click)="openProductDetail(product)" *ngFor="#product of products">
+            <td>{{product.name}}</td>
+            <td>{{product.nickname}}</td>
+            <td>{{product.hs_code}}</td>
+            <td>{{product.upc_code}}</td>
+            <td>{{product.unit_cost.amount}} {{product.unit_cost.currency}}</td>
           </tr>
         </tbody>
       </table>
@@ -26,7 +32,7 @@
   <div class="col-sm-4">
     <div class="panel panel-default">
       <div class="panel-heading">
-        <button (click)="newProduct()" class="btn btn-default">New Shipment</button>
+        <button (click)="newProduct()" class="btn btn-default">New Product</button>
       </div>
       <div class="panel-body">
         Basic panel example

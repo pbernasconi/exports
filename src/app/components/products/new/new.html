@@ -1,0 +1,47 @@
+<div class="row">
+
+  <div class="col-sm-8">
+    <div class="panel panel-default">
+      <div class="panel-body">
+      </div>
+    </div>
+  </div>
+
+  <div class="col-sm-4">
+    <div class="panel panel-default">
+      <div class="panel-heading">Shipment Summary</div>
+      <ul class="list-group">
+        <li class="list-group-item">
+          Name
+          <span class="pull-right bold">{{model.name}}</span>
+        <li class="list-group-item">
+          Origin
+          <span class="pull-right bold">{{model.origin.city + ', '}}{{model.origin.country}}</span>
+        <li class="list-group-item">
+          Destination
+          <span class="pull-right bold">{{model.destination.city + ', '}}{{model.destination.country}}</span>
+        <li class="list-group-item">
+          Status
+          <span class="pull-right bold">{{model.status}}</span>
+        </li>
+        <li class="list-group-item">
+          departure_date
+          <span class="pull-right bold">{{model.departure_date | date:'yMMMMd'}}</span>
+        </li>
+        <li class="list-group-item">
+          arrival_date
+          <span class="pull-right bold">{{model.arrival_date | date:'yMMMMd'}}</span>
+        </li>
+        <li class="list-group-item">
+          Weight (total)
+          <span class="pull-right bold">{{model.weight.total}}</span>
+        </li>
+        <li class="list-group-item">
+          Weight (net)
+          <span class="pull-right bold">{{model.weight.net}}</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+</div>

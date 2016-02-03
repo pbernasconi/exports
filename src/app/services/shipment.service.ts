@@ -4,8 +4,6 @@ import 'rxjs/add/operator/map'
 
 @Injectable()
 export class ShipmentService {
-  shipments: Array<any>;
-
   constructor(public http: Http) { }
 
   getAll() {

@@ -19,4 +19,12 @@ export class Products {
     this.products = [];
     this._productService.getAll().subscribe(result => this.products = result);
   }
+
+  openProductDetail(product) {
+    this._router.navigate(['ProductsDetail', { id: product._id }]);
+  }
+
+  newProduct() {
+    this._router.navigate(['ProductsNew']);
+  }
 }

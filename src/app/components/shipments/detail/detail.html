@@ -15,22 +15,37 @@
 
   <div class="col-sm-6">
     <div class="panel panel-default">
+      <div class="panel-heading">
+        Shipment Summary
+      </div>
+        <div class="" id="shipment-detail-map"></div>
+    </div>
+  </div>
+
+</div>
+
+<div class="row">
+  <div class="col-sm-6">
+    <div class="panel panel-default">
       <div class="panel-heading">Activity</div>
       <ul class="list-group" *ngFor="#activity of shipment.activity">
-        <li class="list-group-item"><span>Name</span><span class="pull-right">{{activity.name}}</span></li>
-        <li class="list-group-item"><span>Origin</span><span class="pull-right">{{activity.origin}}</span></li>
-        <li class="list-group-item"><span>Destination</span><span class="pull-right">{{activity.destination}}</span></li>
-        <li class="list-group-item"><span>Status</span><span class="pull-right">{{activity.status}}</span></li>
+        <li class="list-group-item">{{activity}}</li>
       </ul>
+      <div class="panel-body">
+        <input type="text" placeholder="Search for...">
+        <span class="input-group-btn">
+          <button class="btn btn-default" type="button">Go!</button>
+        </span>
+      </div>
     </div>
   </div>
 
   <div class="col-sm-6">
     <div class="panel panel-default">
-      <div class="panel-heading">
-        Shipment Summary
-      </div>
-        <div class="" id="shipment-detail-map"></div>
+      <div class="panel-heading">Products</div>
+      <ul class="list-group" *ngFor="#product of shipment.products">
+        <li class="list-group-item"><span>Name</span><span class="pull-right">{{product}}</span></li>
+      </ul>
     </div>
   </div>
 
