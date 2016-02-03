@@ -67,49 +67,86 @@
       </div>
 
       <div class="panel panel-default">
+        <div class="panel-heading">Container</div>
+        <div class="panel-body">
+          <div class="form-horizontal">
+
+            <div class="form-group">
+              <label class="col-sm-3 control-label">Container Type</label>
+              <div class="col-sm-9">
+                <select class="form-control" #container_type="ngForm" [(ngModel)]="model.container">
+                  <option>20' STANDARD</option>
+                  <option>40' STANDARD</option>
+                  <option>40' HIGH-CUBE</option>
+                  <option>45' HIGH-CUBE</option>
+                  <option>20' OPEN TOP</option>
+                  <option>40' OPEN TOP</option>
+                  <option>20' FLATRACK</option>
+                  <option>40' FLATRACK</option>
+                  <option>20' FLATRACK COLLAPSIBLE</option>
+                  <option>40' FLATRACK COLLAPSIBLE</option>
+                  <option>20' PLATFORM</option>
+                  <option>40' PLATFORM</option>
+                  <option>20' REFRIDGERATED</option>
+                  <option>40' REFRIDGERATED</option>
+                  <option>20' BULK</option>
+                  <option>20' TANK</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="col-sm-3 control-label">Container Number</label>
+              <div class="col-sm-9">
+                <input class="form-control" #container_number="ngForm" [(ngModel)]="model.container.number" type="text">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="col-sm-3 control-label">Total Weight</label>
+              <div class="col-sm-9">
+                <input class="form-control" #total_weight="ngForm" [(ngModel)]="model.weight.total" type="number">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="col-sm-3 control-label">Net Weight</label>
+              <div class="col-sm-9">
+                <input class="form-control" #net_weight="ngForm" [(ngModel)]="model.weight.net" type="number">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel panel-default">
         <div class="panel-heading">Origin</div>
         <div class="panel-body">
           <div class="form-horizontal">
 
             <div class="form-group">
-              <label for="name" class="col-sm-2 control-label">Address</label>
-              <div class="col-sm-10">
+              <label for="name" class="col-sm-3 control-label">Address</label>
+              <div class="col-sm-9">
                 <input class="form-control" id="origin-address" type="text">
               </div>
             </div>
 
             <div class="form-group">
-              <label for="name" class="col-sm-2 control-label">Street</label>
-              <div class="col-sm-5">
-                <input class="form-control" #origin_street_number="ngForm" [(ngModel)]="model.origin.street_number" type="text">
-              </div>
-              <div class="col-sm-5">
-                <input class="form-control" #origin_street="ngForm" [(ngModel)]="model.origin.street" type="text">
+              <label for="name" class="col-sm-3 control-label">city</label>
+              <div class="col-sm-9">
+                <input class="form-control" #origin_city="ngForm" [(ngModel)]="model.origin.city" type="text" disabled>
               </div>
             </div>
             <div class="form-group">
-              <label for="name" class="col-sm-2 control-label">city</label>
-              <div class="col-sm-10">
-                <input class="form-control" #origin_city="ngForm" [(ngModel)]="model.origin.city" type="text">
+              <label for="name" class="col-sm-3 control-label">state</label>
+              <div class="col-sm-9">
+                <input class="form-control" #origin_state="ngForm" [(ngModel)]="model.origin.state" type="text" disabled>
               </div>
             </div>
             <div class="form-group">
-              <label for="name" class="col-sm-2 control-label">state</label>
-              <div class="col-sm-10">
-                <input class="form-control" #origin_state="ngForm" [(ngModel)]="model.origin.state" type="text">
-              </div>
-            </div>
-            <div class="form-group">
-              <label for="name" class="col-sm-2 control-label">postalCode</label>
-              <div class="col-sm-10">
-
-                <input class="form-control" #origin_postal_code="ngForm" [(ngModel)]="model.origin.postal_code" type="text">
-              </div>
-            </div>
-            <div class="form-group">
-              <label for="name" class="col-sm-2 control-label">country</label>
-              <div class="col-sm-10">
-                <input class="form-control" #origin_country="ngForm" [(ngModel)]="model.origin.country" type="text">
+              <label for="name" class="col-sm-3 control-label">country</label>
+              <div class="col-sm-9">
+                <input class="form-control" #origin_country="ngForm" [(ngModel)]="model.origin.country" type="text" disabled>
               </div>
             </div>
 
@@ -122,42 +159,29 @@
         <div class="panel-body">
           <div class="form-horizontal">
             <div class="form-group">
-              <label for="name" class="col-sm-2 control-label">Address</label>
-              <div class="col-sm-10"><input class="form-control" id="destination-address" type="text"></div>
+              <label for="name" class="col-sm-3 control-label">Address</label>
+              <div class="col-sm-9"><input class="form-control" id="destination-address" type="text"></div>
             </div>
 
             <div class="form-group">
-              <label for="name" class="col-sm-2 control-label">Street</label>
-              <div class="col-sm-5">
-                <input class="form-control" #destination_street_number="ngForm" [(ngModel)]="model.destination.street_number" type="text">
-              </div>
-              <div class="col-sm-5">
-                <input class="form-control" #destination_street="ngForm" [(ngModel)]="model.destination.street" type="text">
+              <label for="name" class="col-sm-3 control-label">city</label>
+              <div class="col-sm-9">
+                <input class="form-control" #destination_city="ngForm" [(ngModel)]="model.destination.city" type="text" disabled>
               </div>
             </div>
 
             <div class="form-group">
-              <label for="name" class="col-sm-2 control-label">city</label>
-              <div class="col-sm-10">
-                <input class="form-control" #destination_city="ngForm" [(ngModel)]="model.destination.city" type="text">
+              <label for="name" class="col-sm-3 control-label">state</label>
+              <div class="col-sm-9">
+                <input class="form-control" #destination_state="ngForm" [(ngModel)]="model.destination.state" type="text" disabled>
               </div>
             </div>
 
             <div class="form-group">
-              <label for="name" class="col-sm-2 control-label">state</label>
-              <div class="col-sm-10">
-                <input class="form-control" #destination_state="ngForm" [(ngModel)]="model.destination.state" type="text">
+              <label for="name" class="col-sm-3 control-label">country</label>
+              <div class="col-sm-9">
+                <input class="form-control" #destination_country="ngForm" [(ngModel)]="model.destination.country" type="text" disabled>
               </div>
-            </div>
-
-            <div class="form-group">
-              <label for="name" class="col-sm-2 control-label">postalCode</label>
-              <div class="col-sm-10"><input class="form-control" #destination_postal_code="ngForm" [(ngModel)]="model.destination.postal_code" type="text"></div>
-            </div>
-
-            <div class="form-group">
-              <label for="name" class="col-sm-2 control-label">country</label>
-              <div class="col-sm-10"><input class="form-control" #destination_country="ngForm" [(ngModel)]="model.destination.country" type="text"></div>
             </div>
           </div>
         </div>
@@ -192,22 +216,55 @@
       </div>
 
       <div class="panel panel-default">
-        <div class="panel-heading">Weight</div>
+        <div class="panel-heading">Carrier</div>
         <div class="panel-body">
           <div class="form-horizontal">
 
             <div class="form-group">
-              <label class="col-sm-2 control-label">Total</label>
-              <div class="col-sm-10">
-                <input class="form-control" #status="ngForm" [(ngModel)]="model.weight.total" type="number">
+              <label class="col-sm-3 control-label">Company</label>
+              <div class="col-sm-9">
+                <select class="form-control">
+                  <option value="14">APL</option>
+                  <option value="4">CHINA SHIPPING</option>
+                  <option value="15">CMA CGM</option>
+                  <option value="5">COSCO</option>
+                  <option value="6">EVERGREEN</option>
+                  <option value="22">HANJIN</option>
+                  <option value="7">HAPAG-LLOYD</option>
+                  <option value="104">HYUNDAI</option>
+                  <option value="8">K-LINE</option>
+                  <option value="10">MAERSK</option>
+                  <option value="32">MOL</option>
+                  <option value="1">MSC</option>
+                  <option value="11">NORASIA</option>
+                  <option value="58">NYK</option>
+                  <option value="17">OOCL</option>
+                  <option value="23">PIL</option>
+                  <option value="68">UASC</option>
+                  <option value="18">YANG MING</option>
+                  <option value="13">ZIM</option>
+                </select>
               </div>
             </div>
+          </div>
+        </div>
+      </div>
 
-            <div class="form-group">
-              <label class="col-sm-2 control-label">Net</label>
-              <div class="col-sm-10">
-                <input class="form-control" #cargo="ngForm" [(ngModel)]="model.weight.net" type="number">
-              </div>
+      <div class="panel panel-default">
+        <div class="panel-heading">Documents</div>
+        <div class="panel-body">
+          <div class="dropzone" (click)="uploadFile()" (dragover)="false" (dragend)="false" (drop)="handleDrop($event)">
+            <div class="dropzone__text">Drop Your Images Here</div>
+            <input class="dropzone__hiddeninput" (change)="handleOnFileChange($event)" type="file" multiple="multiple" style="visibility: hidden; position: absolute; top: 0px; left: 0px; height: 0px; width: 0px;">
+          </div>
+        </div>
+        <div class="panel-body">
+          <div class="document__container" *ngFor="#document of documents">
+            <div class="document__icon"></div>
+            <div class="document__text">
+              <h4>{{ document.name }}</h4>
+              <p>{{ document.size }}
+                bytes</p>
             </div>
           </div>
         </div>

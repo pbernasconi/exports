@@ -17,6 +17,7 @@ export class ShipmentNew {
   public destinationAutocomplete;
   public componentForm;
   public products: Array<any>;
+  public documents: Array<Object> = [];
   zone: NgZone;
 
 
@@ -33,7 +34,10 @@ export class ShipmentNew {
       name: 'New shipment',
       freight_type: '',
       shipment_method: '',
-      container: {},
+      container: {
+        type: '',
+        number: '',
+      },
       weight: {
         total: 0,
         net: 0,
@@ -86,7 +90,9 @@ export class ShipmentNew {
 
 
     this.originAutocomplete = new google.maps.places.Autocomplete(
-      document.getElementById('origin-address'), { types: ['geocode'] });
+      document.getElementById('origin-address'), {
+        types: ['(cities)']
+      });
 
     this.originAutocomplete.addListener('place_changed', () => {
       let place = this.originAutocomplete.getPlace();
@@ -112,7 +118,9 @@ export class ShipmentNew {
 
   initDestinationAddress() {
     this.destinationAutocomplete = new google.maps.places.Autocomplete(
-      document.getElementById('destination-address'), { types: ['geocode'] });
+      document.getElementById('destination-address'), {
+        types: ['(cities)']
+      });
 
     this.destinationAutocomplete.addListener('place_changed', () => {
       let place = this.destinationAutocomplete.getPlace();
@@ -141,6 +149,33 @@ export class ShipmentNew {
     this.zone.run(() => {
       this.model.products.push(product);
     });
+  }
+
+
+  uploadFile() {
+    var hiddenInput = document.querySelectorAll('.dropzone__hiddeninput')[0];
+    hiddenInput.click();
+  }
+
+  handleDrop(e) {
+    var files: File = e.dataTransfer.files;
+    var self = this;
+    Object.keys(files).forEach((key) => {
+      self.documents.push(files[key]);
+    });
+
+    return false;
+  }
+
+  handleOnFileChange(e) {
+    var self = this;
+    var file, files;
+    files = e.target.files;
+    if (files.length) {
+      Object.keys(files).forEach((key) => {
+        self.documents.push(files[key]);
+      });
+    }
   }
 
   onSubmit() {

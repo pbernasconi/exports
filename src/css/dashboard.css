@@ -95,3 +95,37 @@ header.top-header {
   margin-bottom: 5px;
   font-weight: 700;
 }
+
+.dropzone {
+  border: 2px dashed #0087F7;
+  border-radius: 5px;
+  background: white;
+  min-height: 150px;
+  padding: 54px 54px;
+  cursor: pointer;
+}
+
+.dropzone .dropzone__text {
+  text-align: center;
+  font-size: 17px;
+}
+
+.document__container {
+  display: block;
+  margin: 15px 0px;
+}
+
+.document__icon {
+  display: inline-block;
+  height: 110px;
+  width: 80px;
+  border: 1px solid #D2D2D2;
+  border-radius: 4px;
+  background: #F5F5F5;
+}
+
+.document__text {
+  display: inline-block;
+  padding: 10px;
+  vertical-align: top;
+}
