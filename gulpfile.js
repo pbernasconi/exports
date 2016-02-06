@@ -47,7 +47,6 @@ gulp.task('compile', ['clean'], function() {
     .pipe(gulp.dest(paths.dist));
 });
 
-
 gulp.task('tslint', function() {
   return gulp.src(paths.srcTsFiles)
     .pipe(tslint())

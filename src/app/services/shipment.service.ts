@@ -1,4 +1,4 @@
-import {Inject, Injectable} from 'angular2/core';
+import {Injectable} from 'angular2/core';
 import {Http, Headers, Response} from 'angular2/http';
 import 'rxjs/add/operator/map'
 
@@ -6,7 +6,7 @@ import 'rxjs/add/operator/map'
 export class ShipmentService {
   http: Http;
 
-  constructor( @Inject(Http) http: Http) {
+  constructor(http: Http) {
     this.http = http;
   }
 

@@ -37,15 +37,17 @@ export class ShipmentNew {
       documents: [],
       container: {
         type: '',
-        number: '',
+        number: null,
+        imo_class: null,
       },
       weight: {
         total: 0,
         net: 0,
       },
       carrier: {
-        imo: null,
+        company: '',
         mmsi: null,
+        iso: null,
         call_sign: null,
       },
       origin: {

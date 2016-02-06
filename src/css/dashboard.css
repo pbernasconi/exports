@@ -105,6 +105,10 @@ header.top-header {
   cursor: pointer;
 }
 
+.dropzone:hover {
+  background: rgba(0, 135, 247, 0.05);
+}
+
 .dropzone .dropzone__text {
   text-align: center;
   font-size: 17px;

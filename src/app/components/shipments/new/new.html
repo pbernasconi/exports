@@ -104,7 +104,7 @@
             <div class="form-group">
               <label class="col-sm-3 control-label">IMO Class</label>
               <div class="col-sm-9">
-                <select class="form-control" #container_type="ngForm" [(ngModel)]="model.container">
+                <select class="form-control" #container_type="ngForm" [(ngModel)]="model.container.imo_class">
                   <option>No Hazardous</option>
                   <option>Class 1.1</option>
                   <option>Class 1.2</option>
@@ -250,7 +250,7 @@
             <div class="form-group">
               <label class="col-sm-3 control-label">Company</label>
               <div class="col-sm-9">
-                <select class="form-control">
+                <select class="form-control" [(ngModel)]="model.carrier.company">
                   <option value="14">APL</option>
                   <option value="4">CHINA SHIPPING</option>
                   <option value="15">CMA CGM</option>
@@ -335,6 +335,26 @@
           <span class="pull-right bold">{{model.name}}</span>
         </li>
         <li class="list-group-item">
+          Container Type
+          <span class="pull-right bold">{{model.container.type}}</span>
+        </li>
+        <li class="list-group-item">
+          Container Number
+          <span class="pull-right bold">{{model.container.number}}</span>
+        </li>
+        <li class="list-group-item">
+          IMO Class
+          <span class="pull-right bold">{{model.container.imo_class}}</span>
+        </li>
+        <li class="list-group-item">
+          Weight (total)
+          <span class="pull-right bold">{{model.weight.total}}</span>
+        </li>
+        <li class="list-group-item">
+          Weight (net)
+          <span class="pull-right bold">{{model.weight.net}}</span>
+        </li>
+        <li class="list-group-item">
           Origin
           <span class="pull-right bold">{{model.origin.city + ', '}}{{model.origin.country}}</span>
         </li>
@@ -351,7 +371,7 @@
           <span class="pull-right bold">{{model.arrival_date | date:'yMMMMd'}}</span>
         </li>
         <li class="list-group-item">
-          products
+          Products
           <ul class="sub-list">
             <li *ngFor="#prod of model.products">
               <span class="pull-right bold">{{prod.name}}</span>
@@ -359,12 +379,28 @@
           </ul>
         </li>
         <li class="list-group-item">
-          Weight (total)
-          <span class="pull-right bold">{{model.weight.total}}</span>
+          Carrier Company
+          <span class="pull-right bold">{{model.carrier.company}}</span>
         </li>
         <li class="list-group-item">
-          Weight (net)
-          <span class="pull-right bold">{{model.weight.net}}</span>
+          Carrier IMO
+          <span class="pull-right bold">{{model.carrier.imo}}</span>
+        </li>
+        <li class="list-group-item">
+          Carrier MMSI
+          <span class="pull-right bold">{{model.carrier.mmsi}}</span>
+        </li>
+        <li class="list-group-item">
+          Carrier Call Sign
+          <span class="pull-right bold">{{model.carrier.call_sign}}</span>
+        </li>
+        <li class="list-group-item">
+          Documents
+          <ul class="sub-list">
+            <li *ngFor="#doc of model.documents">
+              <span class="pull-right bold">{{doc.name}}</span>
+            </li>
+          </ul>
         </li>
       </ul>
     </div>
